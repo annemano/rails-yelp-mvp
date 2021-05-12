@@ -1,0 +1,16 @@
+<%= simple_form_for(restaurant) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-group">
+    <%= f.label :name%>
+    <%= f.text_field :name, class: 'form-control'%>
+    <%= f.label :address%>
+    <%= f.text_field :address, class: 'form-control'%>
+    <%= f.label :phone_number%>
+    <%= f.text_field :phone_number, class: 'form-control'%>
+    <%= f.label :category %>
+    <%= f.select :category, category: %w[chinese italian japanese french belgian], class: 'form-control' %>
+  </div>
+    <%= f.button :submit, class: 'btn btn-primary'%>
+<% end %>
